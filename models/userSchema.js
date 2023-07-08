@@ -11,6 +11,9 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String
     },
+    uniqueId: {
+        type: String
+    },
     gender: {
         type: String
     },
@@ -27,9 +30,6 @@ const userSchema = new mongoose.Schema({
         type: Number
     },
     DOB: {
-        type: String
-    },
-    uniqueId: {
         type: String
     }
 

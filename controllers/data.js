@@ -8,7 +8,7 @@ class DataController {
     static importData = async (req, res) => {
         try {
             //Read the excel file from path
-            const users = xlsx.readFile('Traveler__Insurance.xlsx');
+            const users = xlsx.readFile('Travellers_Insurance.xlsx')
 
             //Extract data in sheet
             let users_sheet = users.Sheets[users.SheetNames[0]];
