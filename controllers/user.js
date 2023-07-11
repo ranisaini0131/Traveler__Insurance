@@ -1,10 +1,14 @@
 import jwt from 'jsonwebtoken'
-import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
+import express from 'express'
+import multer from 'multer'
 dotenv.config()
 const secreatKey = process.env.secreatKey;
+const app = express()
+
 
 import User from "../models/userSchema.js";
+
 
 class UserController {
 
@@ -14,7 +18,7 @@ class UserController {
 
             const { uniqueId, passportNumber } = req.body
 
-            const user = await User.findOne(req.user._id);
+            const user = await User.findOne({ uniqueId });
             console.log(user, "19");
 
             if (user) {
@@ -57,6 +61,8 @@ class UserController {
 
 
     }
+
+
 
 
 }

@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import multer from 'multer';
 
 
 import connectDb from './dbConnect/db.js';
@@ -23,9 +24,12 @@ connectDb(url);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+
+
 app.use('/users', user)
 app.use('/data', data)
 
 app.listen(port, (req, res) => {
     console.log(`Server is running on port ${port}`)
+
 })
