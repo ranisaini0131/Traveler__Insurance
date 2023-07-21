@@ -1,13 +1,13 @@
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import express from 'express'
-import multer from 'multer'
 dotenv.config()
 const secreatKey = process.env.secreatKey;
 const app = express()
 
 
 import User from "../models/userSchema.js";
+import Claims from '../models/claimsSchema.js'
 
 
 class UserController {
@@ -18,7 +18,7 @@ class UserController {
 
             const { uniqueId, passportNumber } = req.body
 
-            const user = await User.findOne({ uniqueId });
+            const user = await User.findOne({ uniqueId }); //how to 
             console.log(user, "19");
 
             if (user) {
@@ -62,6 +62,22 @@ class UserController {
 
     }
 
+    static uploadsDocuments = async (req, res) => {
+        try {
+            // await Claims.findOneAndUpdate({ _id }, { claims: req.body.claims })
+            res.send({
+                status: "failed",
+                msg: "All fields are required"
+            })
+
+        } catch (error) {
+            console.log(error)
+            // res.send({
+            //     status: "failed",
+            //     msg: "All fields are required"
+            // })
+        }
+    }
 
 
 
