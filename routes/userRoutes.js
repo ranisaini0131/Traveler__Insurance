@@ -8,9 +8,12 @@ const router = express.Router()
 
 const { auth } = middlewares
 
-// router.use('/uploadsDocuments', upload.fields([{ name: "claims", maxCount: 4 }]))
+router.use('/uploadsDocuments', upload.fields([{ name: "claims", maxCount: 4 }]))
+// router.use('/uploadsDocuments', upload.fields([{
+//     name: "claimsDocumnets", maxCount: 4
+// }]))
 
-router.post('/verify', auth, UserController.verify);
+router.post('/verify', UserController.verify);
 router.post('/uploadsDocuments', auth, UserController.uploadsDocuments)
 
 export default router
